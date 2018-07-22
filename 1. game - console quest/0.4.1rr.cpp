@@ -24,7 +24,7 @@
 using namespace std;
 
 /********************************************
- *			 ХРАНЕНИЕ ДАННЫХ				*
+ *			 РҐР РђРќР•РќРР• Р”РђРќРќР«РҐ				*
  ********************************************/
 
 class Item {
@@ -181,7 +181,7 @@ class Player {
 		size_t damage;
 		size_t sizeInventory;
 		vector <Item*> *items;
-		int damageBonus; //в процентах
+		int damageBonus; //РІ РїСЂРѕС†РµРЅС‚Р°С…
 	public:
 		Player () : name ("anonymous"), healthPoints (100), damage (20), sizeInventory (10), items (NULL), damageBonus(0) {}
 		Player (string name, int healthPoints, size_t damage, size_t sizeInventory, int damageBonus) {
@@ -217,7 +217,7 @@ class Player {
 	};
 
 /********************************************
- *			 		ВВОД					*
+ *			 		Р’Р’РћР”					*
  ********************************************/
 
 class InputGameObject {
@@ -230,7 +230,7 @@ class InputGameObject {
 										  "armor:\\s*(.*)%{1}"};
 			ifstream fin (buf.c_str ());
 			if (!fin) {
-				cout << "ОШИБКА: Файл " << fileName << " не существует\n\n";
+				cout << "РћРЁРР‘РљРђ: Р¤Р°Р№Р» " << fileName << " РЅРµ СЃСѓС‰РµСЃС‚РІСѓРµС‚\n\n";
 				return NULL;
 				}
 			while (getline (fin, buf)) {
@@ -261,7 +261,7 @@ class InputGameObject {
 			cmatch match;
 			ifstream fin (buf.c_str ());
 			if (!fin) {
-				cout << "ОШИБКА: Файл " << fileName << " не существует\n\n";
+				cout << "РћРЁРР‘РљРђ: Р¤Р°Р№Р» " << fileName << " РЅРµ СЃСѓС‰РµСЃС‚РІСѓРµС‚\n\n";
 				return NULL;
 				}
 			while (getline (fin, buf)) {
@@ -291,7 +291,7 @@ class InputGameObject {
 										  "special:\\s*(.*)"};
 			ifstream fin (buf.c_str ());
 			if (!fin) {
-				cout << "ОШИБКА: Файл " << fileName << " не существует\n\n";
+				cout << "РћРЁРР‘РљРђ: Р¤Р°Р№Р» " << fileName << " РЅРµ СЃСѓС‰РµСЃС‚РІСѓРµС‚\n\n";
 				return NULL;
 				}
 			while (getline (fin, buf)) {
@@ -321,7 +321,7 @@ class InputGameObject {
 			cmatch match;
 			ifstream fin (buf.c_str ());
 			if (!fin) {
-				cout << "ОШИБКА: Файл " << fileName << " не существует\n\n";
+				cout << "РћРЁРР‘РљРђ: Р¤Р°Р№Р» " << fileName << " РЅРµ СЃСѓС‰РµСЃС‚РІСѓРµС‚\n\n";
 				return NULL;
 				}
 			while (getline (fin, buf)) {
@@ -354,7 +354,7 @@ class InputGameObject {
 										  "damageBonus:\\s*(.*)%{1}"};
 			ifstream fin (buf.c_str ());
 			if (!fin) {
-				cout << "ОШИБКА: Файл " << typeDifficulty << " не существует\n\n";
+				cout << "РћРЁРР‘РљРђ: Р¤Р°Р№Р» " << typeDifficulty << " РЅРµ СЃСѓС‰РµСЃС‚РІСѓРµС‚\n\n";
 				return NULL;
 				}
 			while (getline (fin, buf)) {
@@ -377,7 +377,7 @@ class InputGameObject {
 	};
 
 /********************************************
- *				 ИНТЕРФЕЙС					*
+ *				 РРќРўР•Р Р¤Р•Р™РЎ					*
  ********************************************/
 
 class UserInterface {
@@ -390,20 +390,20 @@ class UserInterface {
 		bool createUser () {
 			string playerName, typeDifficulty;
 			size_t number;
-			cout << endl << "Введите имя игрока: ";
+			cout << endl << "Р’РІРµРґРёС‚Рµ РёРјСЏ РёРіСЂРѕРєР°: ";
 			cin >> playerName;
 			while (1) {
 				cout << endl
-					 << "Выберите сложность" << endl
-					 << "1) Легко" << endl
-					 << "2) Средне" << endl
-					 << "3) Сложно" << endl
-					 << "Выбранная сложность: ";
+					 << "Р’С‹Р±РµСЂРёС‚Рµ СЃР»РѕР¶РЅРѕСЃС‚СЊ" << endl
+					 << "1) Р›РµРіРєРѕ" << endl
+					 << "2) РЎСЂРµРґРЅРµ" << endl
+					 << "3) РЎР»РѕР¶РЅРѕ" << endl
+					 << "Р’С‹Р±СЂР°РЅРЅР°СЏ СЃР»РѕР¶РЅРѕСЃС‚СЊ: ";
 				cin >> number;
 				if (number > 0 && number < 5)
 					break;
 				else
-					cout << endl << "Неверный вариант ответа!" << endl;
+					cout << endl << "РќРµРІРµСЂРЅС‹Р№ РІР°СЂРёР°РЅС‚ РѕС‚РІРµС‚Р°!" << endl;
 				}
 			switch (number) {
 				case 1:
@@ -418,67 +418,67 @@ class UserInterface {
 				}
 			player = inputGO.inputPlayer (typeDifficulty, playerName);
 			if (player == NULL) {
-				cout << endl << "Игра повреждена!" << endl;
+				cout << endl << "РРіСЂР° РїРѕРІСЂРµР¶РґРµРЅР°!" << endl;
 				return false;
 				}
-			cout << endl << "Пользователь создан!" << endl;
+			cout << endl << "РџРѕР»СЊР·РѕРІР°С‚РµР»СЊ СЃРѕР·РґР°РЅ!" << endl;
 			return true;
 			}
 		bool createGameMap () {
-			cout << endl << "Генерация игравой карты..." << endl;
+			cout << endl << "Р“РµРЅРµСЂР°С†РёСЏ РёРіСЂР°РІРѕР№ РєР°СЂС‚С‹..." << endl;
 			gameMap = inputGO.inputGameMap ("game_map");
 			if (gameMap == NULL) {
-				cout << endl << "Игра повреждена!" << endl;
+				cout << endl << "РРіСЂР° РїРѕРІСЂРµР¶РґРµРЅР°!" << endl;
 				return false;
 				}
-			cout << endl << "Игровая карта создана!" << endl;
+			cout << endl << "РРіСЂРѕРІР°СЏ РєР°СЂС‚Р° СЃРѕР·РґР°РЅР°!" << endl;
 			return true;
 			}
 	private:
 		void printAddHealthPoints (string name, int count) {
-			cout << endl << "Игрок " << name << " получил " << count << " здоровья" << endl;
+			cout << endl << "РРіСЂРѕРє " << name << " РїРѕР»СѓС‡РёР» " << count << " Р·РґРѕСЂРѕРІСЊСЏ" << endl;
 			}
 		void printLostHealthPoints (string name, int count) {
-			cout << endl << "Игрок " << name << " потерял " << count << " здоровья" << endl;
+			cout << endl << "РРіСЂРѕРє " << name << " РїРѕС‚РµСЂСЏР» " << count << " Р·РґРѕСЂРѕРІСЊСЏ" << endl;
 			}
 		void printDiedPlayer (string name) {
-			cout << endl << "Игрок " << name << " мёртв" << endl;
+			cout << endl << "РРіСЂРѕРє " << name << " РјС‘СЂС‚РІ" << endl;
 			}
 	private:
 		int actionTransition () {
 			size_t number;
 			while (1) {
-				cout << endl << "Куда направиться" << endl;
+				cout << endl << "РљСѓРґР° РЅР°РїСЂР°РІРёС‚СЊСЃСЏ" << endl;
 				for (size_t i = 0, len = gameMap->getCurrentRoom().get_ptrRooms()->size(); i != len; ++i)
 					cout << i + 1 << ") " << gameMap->getCurrentRoom().get_ptrRooms()->at(i)->getName() << endl;
-				cout << gameMap->getCurrentRoom().get_ptrRooms()->size() + 1 << ") Отменить" << endl;
-				cout << "Выбранное направление: ";
+				cout << gameMap->getCurrentRoom().get_ptrRooms()->size() + 1 << ") РћС‚РјРµРЅРёС‚СЊ" << endl;
+				cout << "Р’С‹Р±СЂР°РЅРЅРѕРµ РЅР°РїСЂР°РІР»РµРЅРёРµ: ";
 				cin >> number;
 				if (number > 0 && number <= gameMap->getCurrentRoom().get_ptrRooms()->size() + 1)
 					break;
 				else
-					cout << endl << "Неверный вариант ответа!" << endl;
+					cout << endl << "РќРµРІРµСЂРЅС‹Р№ РІР°СЂРёР°РЅС‚ РѕС‚РІРµС‚Р°!" << endl;
 				}
 			if (gameMap->getCurrentRoom().get_ptrRooms()->at(number - 1)->getCloseRoom() == true) {
 				int number, unit;
 				while (1) {
-					cout << endl << "Комната заперта. Попытаться открыть?" << endl;
-					cout << "1) Да" << endl;
-					cout << "2) Нет" << endl;		
-					cout << "Выбор: ";				
+					cout << endl << "РљРѕРјРЅР°С‚Р° Р·Р°РїРµСЂС‚Р°. РџРѕРїС‹С‚Р°С‚СЊСЃСЏ РѕС‚РєСЂС‹С‚СЊ?" << endl;
+					cout << "1) Р”Р°" << endl;
+					cout << "2) РќРµС‚" << endl;		
+					cout << "Р’С‹Р±РѕСЂ: ";				
 					cin >> number;
 					if (number > 0 && number < 3)
 						break;
 					else
-						cout << endl << "Неверный вариант ответа!" << endl;
+						cout << endl << "РќРµРІРµСЂРЅС‹Р№ РІР°СЂРёР°РЅС‚ РѕС‚РІРµС‚Р°!" << endl;
 					}
 				switch (number) {
 					case 1:
 						unit = actionInventory();  //player->get_ptrItems()->at(unit)->getName()
 						if (gameMap->getCurrentRoom().get_ptrRooms()->at(number - 1)->checkKeyItems(player->get_ptrItems()->at(unit)->getName()) == true)
-							cout << endl << "Вы открыли комнату" << endl;
+							cout << endl << "Р’С‹ РѕС‚РєСЂС‹Р»Рё РєРѕРјРЅР°С‚Сѓ" << endl;
 						else {
-							cout << endl << "Комната не открыта" << endl;
+							cout << endl << "РљРѕРјРЅР°С‚Р° РЅРµ РѕС‚РєСЂС‹С‚Р°" << endl;
 							return -1;
 							}
 						break;
@@ -497,16 +497,16 @@ class UserInterface {
 		int actionInventory () {
 			size_t number;
 			while (1) {
-				cout << endl << "Что использовать" << endl;
+				cout << endl << "Р§С‚Рѕ РёСЃРїРѕР»СЊР·РѕРІР°С‚СЊ" << endl;
 				for (size_t i = 0, len = player->get_ptrItems()->size(); i != len; ++i)
 					cout << i + 1 << ") " << player->get_ptrItems()->at(i)->getName() << endl;
-				cout << player->get_ptrItems()->size() + 1 << ") Отменить" << endl;
-				cout << "Выбранный предмет: ";
+				cout << player->get_ptrItems()->size() + 1 << ") РћС‚РјРµРЅРёС‚СЊ" << endl;
+				cout << "Р’С‹Р±СЂР°РЅРЅС‹Р№ РїСЂРµРґРјРµС‚: ";
 				cin >> number;
 				if (number > 0 && number <= player->get_ptrItems()->size() + 1)
 					break;
 				else
-					cout << endl << "Неверный вариант ответа!" << endl;
+					cout << endl << "РќРµРІРµСЂРЅС‹Р№ РІР°СЂРёР°РЅС‚ РѕС‚РІРµС‚Р°!" << endl;
 				}
 			if (number != player->get_ptrItems()->size() + 1)
 				return number - 1;
@@ -516,16 +516,16 @@ class UserInterface {
 		int actionRoomItem () {
 			size_t number;
 			while (1) {
-				cout << endl << "Что использовать" << endl;
+				cout << endl << "Р§С‚Рѕ РёСЃРїРѕР»СЊР·РѕРІР°С‚СЊ" << endl;
 				for (size_t i = 0, len = gameMap->getCurrentRoom().get_ptrItems()->size(); i != len; ++i)
 					cout << i + 1 << ") " << gameMap->getCurrentRoom().get_ptrItems()->at(i)->getName() << endl;
-				cout << gameMap->getCurrentRoom().get_ptrItems()->size() + 1 << ") Отменить" << endl;
-				cout << "Выбранный предмет: ";
+				cout << gameMap->getCurrentRoom().get_ptrItems()->size() + 1 << ") РћС‚РјРµРЅРёС‚СЊ" << endl;
+				cout << "Р’С‹Р±СЂР°РЅРЅС‹Р№ РїСЂРµРґРјРµС‚: ";
 				cin >> number;
 				if (number > 0 && number <= gameMap->getCurrentRoom().get_ptrItems()->size() + 1)
 					break;
 				else
-					cout << endl << "Неверный вариант ответа!" << endl;
+					cout << endl << "РќРµРІРµСЂРЅС‹Р№ РІР°СЂРёР°РЅС‚ РѕС‚РІРµС‚Р°!" << endl;
 				}
 			if (number != gameMap->getCurrentRoom().get_ptrItems()->size() + 1)
 				return number - 1;
@@ -539,7 +539,7 @@ class UserInterface {
 			while (gameMap->getCurrentRoom().get_ptrMobs()->size() != 0) {
 				int i = 0;
 				MobileObject *mob = gameMap->getCurrentRoom().get_ptrMobs()->at(i);
-				cout << endl << "Вас атакует " << mob->getName() << endl;
+				cout << endl << "Р’Р°СЃ Р°С‚Р°РєСѓРµС‚ " << mob->getName() << endl;
 				while (1) {
 					player->setHealthPoints (player->getHealthPoints() - mob->getDamage());
 					printLostHealthPoints (player->getName(), mob->getDamage());
@@ -549,16 +549,16 @@ class UserInterface {
 						}
 					while (1) {
 						cout << endl
-							 << "Действия боя" << endl
-							 << "1) Удар рукой" << endl
-							 << "2) Инвентарь" << endl
-							 << "3) Проверить своё здоровье" << endl
-							 << "4) Информация о противнике" << endl
-							 << "5) Бежать, поджав хвост" << endl
-							 << "Выбранное действие: ";
+							 << "Р”РµР№СЃС‚РІРёСЏ Р±РѕСЏ" << endl
+							 << "1) РЈРґР°СЂ СЂСѓРєРѕР№" << endl
+							 << "2) РРЅРІРµРЅС‚Р°СЂСЊ" << endl
+							 << "3) РџСЂРѕРІРµСЂРёС‚СЊ СЃРІРѕС‘ Р·РґРѕСЂРѕРІСЊРµ" << endl
+							 << "4) РРЅС„РѕСЂРјР°С†РёСЏ Рѕ РїСЂРѕС‚РёРІРЅРёРєРµ" << endl
+							 << "5) Р‘РµР¶Р°С‚СЊ, РїРѕРґР¶Р°РІ С…РІРѕСЃС‚" << endl
+							 << "Р’С‹Р±СЂР°РЅРЅРѕРµ РґРµР№СЃС‚РІРёРµ: ";
 						cin >> number;
 						if (!(number > 0 && number < 6)) {
-							cout << endl << "Неверный вариант ответа!" << endl;
+							cout << endl << "РќРµРІРµСЂРЅС‹Р№ РІР°СЂРёР°РЅС‚ РѕС‚РІРµС‚Р°!" << endl;
 							continue;
 							}
 						switch (number) {
@@ -591,13 +591,13 @@ class UserInterface {
 								break;
 							case 3:
 								cout << endl << player->getName() << endl 
-									 << "здоровье: " << player->getHealthPoints() << endl;
+									 << "Р·РґРѕСЂРѕРІСЊРµ: " << player->getHealthPoints() << endl;
 								continue;
 							case 4:
 								cout << endl << mob->getName() << endl
-									 << "здоровье: " << mob->getHealthPoints() << endl
-									 << "урон: " << mob->getDamage() << endl
-									 << "броня: " << mob->getArmor() << endl;
+									 << "Р·РґРѕСЂРѕРІСЊРµ: " << mob->getHealthPoints() << endl
+									 << "СѓСЂРѕРЅ: " << mob->getDamage() << endl
+									 << "Р±СЂРѕРЅСЏ: " << mob->getArmor() << endl;
 								continue;
 							case 5:
 								unit = actionTransition ();
@@ -625,18 +625,18 @@ class UserInterface {
 			int unit;
 			while (1) {
 				cout << endl
-					 << "Действия" << endl
-					 << "1) Местонахождение" << endl
-					 << "2) Обыскать местность" << endl
-					 << "3) Обзор инвентаря" << endl
-					 << "4) Удалить из инвентаря" << endl
-					 << "5) Проверить своё здоровье" << endl
-					 << "6) Искать выход" << endl
-					 << "7) Выйти из игры" << endl
-					 << "Выбранное действие: ";
+					 << "Р”РµР№СЃС‚РІРёСЏ" << endl
+					 << "1) РњРµСЃС‚РѕРЅР°С…РѕР¶РґРµРЅРёРµ" << endl
+					 << "2) РћР±С‹СЃРєР°С‚СЊ РјРµСЃС‚РЅРѕСЃС‚СЊ" << endl
+					 << "3) РћР±Р·РѕСЂ РёРЅРІРµРЅС‚Р°СЂСЏ" << endl
+					 << "4) РЈРґР°Р»РёС‚СЊ РёР· РёРЅРІРµРЅС‚Р°СЂСЏ" << endl
+					 << "5) РџСЂРѕРІРµСЂРёС‚СЊ СЃРІРѕС‘ Р·РґРѕСЂРѕРІСЊРµ" << endl
+					 << "6) РСЃРєР°С‚СЊ РІС‹С…РѕРґ" << endl
+					 << "7) Р’С‹Р№С‚Рё РёР· РёРіСЂС‹" << endl
+					 << "Р’С‹Р±СЂР°РЅРЅРѕРµ РґРµР№СЃС‚РІРёРµ: ";
 				cin >> number;
 				if (!(number > 0 && number < 8)) {
-					cout << endl << "Неверный вариант ответа!" << endl;
+					cout << endl << "РќРµРІРµСЂРЅС‹Р№ РІР°СЂРёР°РЅС‚ РѕС‚РІРµС‚Р°!" << endl;
 					continue;
 					}
 				switch (number) {
@@ -678,7 +678,7 @@ class UserInterface {
 						break;
 					case 5:
 						cout << endl << player->getName() << endl 
-							 << "здоровье: " << player->getHealthPoints() << endl;
+							 << "Р·РґРѕСЂРѕРІСЊРµ: " << player->getHealthPoints() << endl;
 						continue;
 					case 6:
 						unit = actionTransition ();
@@ -698,13 +698,13 @@ class UserInterface {
 			size_t number;
 			while (1) {
 				cout << endl
-					 << "Вы действительно хотите выйти из игры? Пройденный результат будет утерян!" << endl
-					 << "1) Да" << endl
-					 << "2) Нет" << endl
-					 << "Выбранное действие: ";
+					 << "Р’С‹ РґРµР№СЃС‚РІРёС‚РµР»СЊРЅРѕ С…РѕС‚РёС‚Рµ РІС‹Р№С‚Рё РёР· РёРіСЂС‹? РџСЂРѕР№РґРµРЅРЅС‹Р№ СЂРµР·СѓР»СЊС‚Р°С‚ Р±СѓРґРµС‚ СѓС‚РµСЂСЏРЅ!" << endl
+					 << "1) Р”Р°" << endl
+					 << "2) РќРµС‚" << endl
+					 << "Р’С‹Р±СЂР°РЅРЅРѕРµ РґРµР№СЃС‚РІРёРµ: ";
 				cin >> number;
 				if (!(number > 0 && number < 3)) {
-					cout << endl << "Неверный вариант ответа!" << endl;
+					cout << endl << "РќРµРІРµСЂРЅС‹Р№ РІР°СЂРёР°РЅС‚ РѕС‚РІРµС‚Р°!" << endl;
 					continue;
 					}
 				switch (number) {
@@ -776,7 +776,7 @@ int main (void) {
 */
 /*
 	Player *player;
-	player = igo.inputPlayer ("hard", "Анатоле");
+	player = igo.inputPlayer ("hard", "РђРЅР°С‚РѕР»Рµ");
 	if (player == NULL)
 		return 1;
 	cout << player->getName() << endl;
@@ -795,7 +795,7 @@ int main (void) {
 	cout << gmap->getCurrentRoom().get_ptrRooms()->at(3)->get_ptrRooms()->at(1)->getName()<< endl;
 	cout << gmap->getCurrentRoom().get_ptrRooms()->size() << endl;
 	cout << "\n\n";
-	cout << gmap->getCurrentRoom().get_ptrRooms()->at(3)->checkKeyItems("Ржавый ключ") << endl;
+	cout << gmap->getCurrentRoom().get_ptrRooms()->at(3)->checkKeyItems("Р Р¶Р°РІС‹Р№ РєР»СЋС‡") << endl;
 	delete gmap;
 */
 
