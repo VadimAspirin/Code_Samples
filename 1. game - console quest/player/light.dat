@@ -1,0 +1,4 @@
+healthPoints: 200
+damage: 40
+sizeInventory: 20
+damageBonus: 100%

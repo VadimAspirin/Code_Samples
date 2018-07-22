@@ -1,0 +1,6 @@
+name: Грибы
+weight: 1
+lifeUp: 100
+damage: 0
+countUses: 1
+special: 0

@@ -1,0 +1,6 @@
+name: Ножка от стула
+weight: 1
+lifeUp: 0
+damage: 20
+countUses: 3
+special: 0

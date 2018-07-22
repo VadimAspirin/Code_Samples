@@ -1,0 +1,6 @@
+name: Металическая балка
+weight: 1
+lifeUp: 0
+damage: 30
+countUses: 4
+special: 0

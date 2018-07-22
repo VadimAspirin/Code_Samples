@@ -1,0 +1,6 @@
+name: Колбаса доктарская
+weight: 1
+lifeUp: 50
+damage: -50
+countUses: 1
+special: 0

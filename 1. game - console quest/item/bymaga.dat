@@ -1,0 +1,6 @@
+name: Бумага
+weight: 1
+lifeUp: 0
+damage: 0
+countUses: 0
+special: 1

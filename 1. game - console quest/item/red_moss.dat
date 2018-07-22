@@ -1,0 +1,6 @@
+name: Красный мох
+weight: 1
+lifeUp: 10
+damage: -10
+countUses: 1
+special: 0
