@@ -1,11 +1,11 @@
 #include <iostream>
 #include <fstream>
 #include <string>
-#include <regex>   		// -std=c++11 or -std=gnu++11
-#include <cstdlib>		// atof, atoi
+#include <regex>   	// -std=c++11 or -std=gnu++11
+#include <cstdlib>	// atof, atoi
 #include <ctime>
 #include <map>
-#include <utility> 		// pair
+#include <utility> 	// pair
 #include <vector>
 #include <algorithm> 	// std::sort
 
