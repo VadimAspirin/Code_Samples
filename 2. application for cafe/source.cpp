@@ -18,7 +18,7 @@
 using namespace std;
 
 //############################################
-// ХРАНЕНИЕ ДАННЫХ
+// РҐР РђРќР•РќРР• Р”РђРќРќР«РҐ
 //############################################
 
 class UnitCategoryMenu {
@@ -71,7 +71,7 @@ class CategoryMenu {
 		void printMenu () const {
 			cout << category;
 			if (birthday == true)
-				cout << " #именинник";
+				cout << " #РёРјРµРЅРёРЅРЅРёРє";
 			cout << endl;
 			for (size_t i = 0, len = catalogDish.size(); i != len; ++i)
 				cout << "   " << catalogDish[i].getName() << ": " << catalogDish[i].getCost()
@@ -207,13 +207,13 @@ class Order {
 		double colculationPercentDiscount (const Menu &menu) const;
 	public:
 		void printOrder () const {
-			cout << "Номер заказа: " << numberOrder << endl;
-			cout << "Время заказа: " << time << endl;
-			cout << "Именинник: " << birthday << endl;
-			cout << "Заказ: " << endl;
+			cout << "РќРѕРјРµСЂ Р·Р°РєР°Р·Р°: " << numberOrder << endl;
+			cout << "Р’СЂРµРјСЏ Р·Р°РєР°Р·Р°: " << time << endl;
+			cout << "РРјРµРЅРёРЅРЅРёРє: " << birthday << endl;
+			cout << "Р—Р°РєР°Р·: " << endl;
 			for (size_t i = 0, len = catalogDish.size(); i != len; ++i)
 				cout << "   " << catalogDish[i].getName() << ": " << catalogDish[i].getNumber() << endl;
-			cout << "Сумма к оплате: " << totalCost << "\n\n";
+			cout << "РЎСѓРјРјР° Рє РѕРїР»Р°С‚Рµ: " << totalCost << "\n\n";
 			}
 	};
 
@@ -249,7 +249,7 @@ class Orders {
 	};
 
 //############################################
-// ОБРАБОТКА ОШИБОК
+// РћР‘Р РђР‘РћРўРљРђ РћРЁРР‘РћРљ
 //############################################
 class Errors {
 	private:
@@ -281,15 +281,15 @@ class Errors {
 					return "December";
 				}
 			}
-	public: //ФАЙЛ
-		int errorFileNotFound (const ifstream &fin, string fname) { //наличие файла
+	public: //Р¤РђР™Р›
+		int errorFileNotFound (const ifstream &fin, string fname) { //РЅР°Р»РёС‡РёРµ С„Р°Р№Р»Р°
 			if (!fin) {
 				cout << endl << "ERROR: File " << fname << " not found" << endl << endl;
 				return 1;
 				}
 			else return 0;
 			}
-		int errorFileData (const string &sdata, string fname) { //наличие данных
+		int errorFileData (const string &sdata, string fname) { //РЅР°Р»РёС‡РёРµ РґР°РЅРЅС‹С…
 			if (sdata.empty ()) {
 				cout << endl << "ERROR: No data in the file " << fname << endl << endl;
 				return 1;
@@ -297,7 +297,7 @@ class Errors {
 			else return 0;
 			}
 	public: //DATA
-		void errorUnknownDish (const multimap <string, int> &kitchen, const Orders &orders, const Menu &menu, string date) { //неопознанные блюда
+		void errorUnknownDish (const multimap <string, int> &kitchen, const Orders &orders, const Menu &menu, string date) { //РЅРµРѕРїРѕР·РЅР°РЅРЅС‹Рµ Р±Р»СЋРґР°
 			for (multimap <string, int>::const_iterator it = kitchen.begin (); it != kitchen.end (); ++it)
 				if (!menu.getMenuPrice (it->first))
 					cout << endl << "ERROR: In kitchen-" << date << " unknown dish: " + it->first << endl << endl;
@@ -312,26 +312,26 @@ class Errors {
 				return 1;
 				}
 			if (mm == 1 || mm == 3 || mm == 5 || mm == 7 || 
-			mm == 8 || mm == 10 || mm == 12) { // 31 день
+			mm == 8 || mm == 10 || mm == 12) { // 31 РґРµРЅСЊ
 				if (dd > 31 || dd < 1) {
 					cout << endl << "ERROR: Incorrect number of days in a month: " << numberInMonth(mm) << endl << endl;
 					return 1;
 					}
 				}
-			else if (mm == 4 || mm == 6 || mm == 9 || mm == 11) { // 30 дней
+			else if (mm == 4 || mm == 6 || mm == 9 || mm == 11) { // 30 РґРЅРµР№
 				if (dd > 30 || dd < 1) {
 					cout << endl << "ERROR: Incorrect number of days in a month: " << numberInMonth(mm) << endl << endl;
 					return 1;
 					}
 				}
-			else if (mm == 2) { // февраль
-				if (yyyy % 4 == 0 && yyyy % 100 != 0 || yyyy % 400 == 0) { //високосный год
+			else if (mm == 2) { // С„РµРІСЂР°Р»СЊ
+				if (yyyy % 4 == 0 && yyyy % 100 != 0 || yyyy % 400 == 0) { //РІРёСЃРѕРєРѕСЃРЅС‹Р№ РіРѕРґ
 					if (dd > 29 || dd < 1) {
 						cout << endl << "ERROR: Incorrect number of days in a month: " << numberInMonth(mm) << endl << endl;
 						return 1;
 						}
 					}
-				else { //не високосный год
+				else { //РЅРµ РІРёСЃРѕРєРѕСЃРЅС‹Р№ РіРѕРґ
 					if (dd > 28 || dd < 1) {
 						cout << endl << "ERROR: Incorrect number of days in a month: " << numberInMonth(mm) << endl << endl;
 						return 1;
@@ -347,7 +347,7 @@ class Errors {
 	};
 
 //############################################
-// ВВОД-ВЫВОД
+// Р’Р’РћР”-Р’Р«Р’РћР”
 //############################################
 class InputFile {
 	private:
@@ -384,12 +384,12 @@ class InputFile {
 			bool bufBirthday = false;
 			string line, bufNumberOrder, bufTotalCost, bufTime;
 			vector <string> vline;
-			regex rgOrder ("Заказ №(\\d+)\\s+(\\d{2}:{1}\\d{2})\\s*(.*)"), rgTotal ("итого: (\\d+),?(\\d{0,2})");
+			regex rgOrder ("Р—Р°РєР°Р· в„–(\\d+)\\s+(\\d{2}:{1}\\d{2})\\s*(.*)"), rgTotal ("РёС‚РѕРіРѕ: (\\d+),?(\\d{0,2})");
 			cmatch match;
 			while (getline (fin, line)) {
 				if (regex_search (line.c_str (), match, rgOrder)) {
 					bufTime = match[2];
-					if (match[3] == "именинник")
+					if (match[3] == "РёРјРµРЅРёРЅРЅРёРє")
 						bufBirthday = true;
 					bufNumberOrder = match[1];
 					continue;
@@ -433,21 +433,21 @@ class InputFile {
 						dishes.clear ();
 						}
 /*1*/				if (!dishes.size ()) {
-						for (itHashtag = hashtag.begin(); itHashtag != hashtag.end(); ++itHashtag) //очищаем ненужные хештеги
+						for (itHashtag = hashtag.begin(); itHashtag != hashtag.end(); ++itHashtag) //РѕС‡РёС‰Р°РµРј РЅРµРЅСѓР¶РЅС‹Рµ С…РµС€С‚РµРіРё
 							if (itHashtag->second >= cmCtgr[1].length())
 								hashtag.erase (itHashtag);
-						for (itMCtgr = mCtgr.begin(); itMCtgr != mCtgr.end(); ++itMCtgr) //очищаем ненужную вложенность
+						for (itMCtgr = mCtgr.begin(); itMCtgr != mCtgr.end(); ++itMCtgr) //РѕС‡РёС‰Р°РµРј РЅРµРЅСѓР¶РЅСѓСЋ РІР»РѕР¶РµРЅРЅРѕСЃС‚СЊ
 							if (itMCtgr->first > cmCtgr[1].length())
 								mCtgr.erase (itMCtgr);
 						bufSubCtgr = cmCtgr[2];
-						if (regex_search (bufSubCtgr.c_str (), cmHashtag, rgHashtag)) { //отделить категорию от хештега
+						if (regex_search (bufSubCtgr.c_str (), cmHashtag, rgHashtag)) { //РѕС‚РґРµР»РёС‚СЊ РєР°С‚РµРіРѕСЂРёСЋ РѕС‚ С…РµС€С‚РµРіР°
 							bufSubCtgr = cmHashtag[1];
 							hashtag[cmHashtag[2]] = cmCtgr[1].length();
 							}
 						mCtgr[cmCtgr[1].length()] = "[" + bufSubCtgr + "]";
 						bufBirthday = false;
 						for (itHashtag = hashtag.begin(); itHashtag != hashtag.end(); ++itHashtag)
-							if (itHashtag->first == "именинник")
+							if (itHashtag->first == "РёРјРµРЅРёРЅРЅРёРє")
 								bufBirthday = true;
 						}
 					}
@@ -483,7 +483,7 @@ class OutputFile {
 	};
 
 //############################################
-// ДАТА
+// Р”РђРўРђ
 //############################################
 class Date {
 	private:
@@ -519,7 +519,7 @@ class Date {
 			int yyyy, mm, dd;
 			dateStringInInt (yyyy, mm, dd, date);
 			if (mm == 1 || mm == 3 || mm == 5 || mm == 7 || 
-			mm == 8 || mm == 10 || mm == 12) // 31 день
+			mm == 8 || mm == 10 || mm == 12) // 31 РґРµРЅСЊ
 				if (dd == 31)
 					if (mm == 12) {
 						++yyyy;
@@ -531,20 +531,20 @@ class Date {
 						dd = 1;
 						}
 				else ++dd;
-			else if (mm == 4 || mm == 6 || mm == 9 || mm == 11) // 30 дней
+			else if (mm == 4 || mm == 6 || mm == 9 || mm == 11) // 30 РґРЅРµР№
 				if (dd == 30) {
 						++mm;
 						dd = 1;
 						}
 				else ++dd;
-			else if (mm == 2) // февраль
-				if (yyyy % 4 == 0 && yyyy % 100 != 0 || yyyy % 400 == 0) //високосный год
+			else if (mm == 2) // С„РµРІСЂР°Р»СЊ
+				if (yyyy % 4 == 0 && yyyy % 100 != 0 || yyyy % 400 == 0) //РІРёСЃРѕРєРѕСЃРЅС‹Р№ РіРѕРґ
 					if (dd == 29) {
 						++mm;
 						dd = 1;
 						}
 					else ++dd;
-				else //не високосный год
+				else //РЅРµ РІРёСЃРѕРєРѕСЃРЅС‹Р№ РіРѕРґ
 					if (dd == 28) {
 						++mm;
 						dd = 1;
@@ -557,11 +557,11 @@ class Date {
 		void inputDateFromString () {
 			int yyyy, mm, dd;
 			while (1) {
-				cout << "Введите год: ";
+				cout << "Р’РІРµРґРёС‚Рµ РіРѕРґ: ";
 				cin >> yyyy;
-				cout << "Введите месяц (номер): ";
+				cout << "Р’РІРµРґРёС‚Рµ РјРµСЃСЏС† (РЅРѕРјРµСЂ): ";
 				cin >> mm;
-				cout << "Введите день: ";
+				cout << "Р’РІРµРґРёС‚Рµ РґРµРЅСЊ: ";
 				cin >> dd;
 				if (!(error.errorDate (yyyy, mm, dd))) {
 					dateIntInString (yyyy, mm, dd);
@@ -569,12 +569,12 @@ class Date {
 					}
 				}
 			}
-		void currentDate () { //текущая дата
+		void currentDate () { //С‚РµРєСѓС‰Р°СЏ РґР°С‚Р°
 			time_t t = time (NULL);
 			tm *st = localtime(&t);
 			dateIntInString (st->tm_year + 1900, st->tm_mon + 1, st->tm_mday);
 			}
-		int dateWeekAgo (string currentDate) { //дата 6 дней назад
+		int dateWeekAgo (string currentDate) { //РґР°С‚Р° 6 РґРЅРµР№ РЅР°Р·Р°Рґ
 			int yyyy, mm, dd;
 			if (dateStringInInt (yyyy, mm, dd, currentDate))
 				return 1;
@@ -586,21 +586,21 @@ class Date {
 						}
 					else --mm;
 					if (mm == 1 || mm == 3 || mm == 5 || mm == 7 || 
-					mm == 8 || mm == 10 || mm == 12) // 31 день
+					mm == 8 || mm == 10 || mm == 12) // 31 РґРµРЅСЊ
 						dd = 31;
-					else if (mm == 4 || mm == 6 || mm == 9 || mm == 11) // 30 дней
+					else if (mm == 4 || mm == 6 || mm == 9 || mm == 11) // 30 РґРЅРµР№
 						dd = 30;
-					else if (mm == 2) // февраль
-						if (yyyy % 4 == 0 && yyyy % 100 != 0 || yyyy % 400 == 0) //високосный год
+					else if (mm == 2) // С„РµРІСЂР°Р»СЊ
+						if (yyyy % 4 == 0 && yyyy % 100 != 0 || yyyy % 400 == 0) //РІРёСЃРѕРєРѕСЃРЅС‹Р№ РіРѕРґ
 							dd = 29;
-						else dd = 28; //не високосный год
+						else dd = 28; //РЅРµ РІРёСЃРѕРєРѕСЃРЅС‹Р№ РіРѕРґ
 					}
 				else --dd;
 				}
 			dateIntInString (yyyy, mm, dd);
 			return 0;
 			}
-		int compareDates (string currentDate) { //если date >= currentDate возвращает 1, иначе 0; -1 - если ошибка даты
+		int compareDates (string currentDate) { //РµСЃР»Рё date >= currentDate РІРѕР·РІСЂР°С‰Р°РµС‚ 1, РёРЅР°С‡Рµ 0; -1 - РµСЃР»Рё РѕС€РёР±РєР° РґР°С‚С‹
 			int yyyy1, mm1, dd1, 
 				yyyy2, mm2, dd2;
 			if (dateStringInInt (yyyy1, mm1, dd1, date) || dateStringInInt (yyyy2, mm2, dd2, currentDate)) 
@@ -635,7 +635,7 @@ class DiscountDishDay : public Discount {
 		string name;
 		double totalDiscount;
 	public:
-		DiscountDishDay () : name ("Блюдо дня"), totalDiscount (0) {}
+		DiscountDishDay () : name ("Р‘Р»СЋРґРѕ РґРЅСЏ"), totalDiscount (0) {}
 		string getNameDiscountType () const { return name; }
 		void calculationTotalDiscount (const Menu &menu, const Order &order) {
 			for (size_t i = 0, len_i = menu.countMenuDishes (); i != len_i; ++i)
@@ -655,8 +655,8 @@ class DiscountEvening : public Discount {
 		string time;
 		double discount;
 	public:
-		DiscountEvening () : name ("Вечерняя"), totalDiscount (0), time ("21:00"), discount (10) {}
-		DiscountEvening (string time, double discount) : name ("Вечерняя"), totalDiscount (0) {
+		DiscountEvening () : name ("Р’РµС‡РµСЂРЅСЏСЏ"), totalDiscount (0), time ("21:00"), discount (10) {}
+		DiscountEvening (string time, double discount) : name ("Р’РµС‡РµСЂРЅСЏСЏ"), totalDiscount (0) {
 			this->time = time;
 			this->discount = discount;
 			}
@@ -675,8 +675,8 @@ class DiscountBirthday : public Discount {
 	private:
 		double discount;
 	public:
-		DiscountBirthday () : name ("Именинник"), totalDiscount (0), discount (20) {}
-		DiscountBirthday (double discount) : name ("Именинник"), totalDiscount (0) {
+		DiscountBirthday () : name ("РРјРµРЅРёРЅРЅРёРє"), totalDiscount (0), discount (20) {}
+		DiscountBirthday (double discount) : name ("РРјРµРЅРёРЅРЅРёРє"), totalDiscount (0) {
 			this->discount = discount;
 			}
 		string getNameDiscountType () const { return name; }
@@ -701,12 +701,12 @@ class DiscountBigOrder : public Discount {
 	private:
 		map <double, double> costAndDiscount;
 	public:
-		DiscountBigOrder () : name ("Большой заказ"), totalDiscount (0) {
+		DiscountBigOrder () : name ("Р‘РѕР»СЊС€РѕР№ Р·Р°РєР°Р·"), totalDiscount (0) {
 			costAndDiscount[1500] = 5;
 			costAndDiscount[2500] = 6;
 			costAndDiscount[5000] = 8;
 			}
-		DiscountBigOrder (const map <double, double> &catalogCostAndDiscount) : name ("Большой заказ"), totalDiscount (0) {
+		DiscountBigOrder (const map <double, double> &catalogCostAndDiscount) : name ("Р‘РѕР»СЊС€РѕР№ Р·Р°РєР°Р·"), totalDiscount (0) {
 			costAndDiscount[1500] = 5;
 			costAndDiscount[2500] = 6;
 			costAndDiscount[5000] = 8;
@@ -724,7 +724,7 @@ class DiscountBigOrder : public Discount {
 		double getTotalDiscount () const { return totalDiscount; }
 	};
 
-class DiscountPointersCompare { //функциональный объект
+class DiscountPointersCompare { //С„СѓРЅРєС†РёРѕРЅР°Р»СЊРЅС‹Р№ РѕР±СЉРµРєС‚
 	public:
 		bool operator () (const Discount* const &i, const Discount* const &j) {
 			return (i->getTotalDiscount() <= j->getTotalDiscount());
@@ -732,7 +732,7 @@ class DiscountPointersCompare { //функциональный объект
 	};
 
 //############################################
-// Ввод Discounts в Order
+// Р’РІРѕРґ Discounts РІ Order
 //############################################
 class InputDiscountOrders {
 	public:
@@ -776,7 +776,7 @@ Order::~Order () {
 //(end)-----------Order----------------------
 
 //############################################
-// ОТЧЁТЫ
+// РћРўР§РЃРўР«
 //############################################
 class Report {
 	public:
@@ -791,10 +791,10 @@ class ReportStolenDishes : Report {
 		ReportStolenDishes (const multimap <string, int> &kitchen, const Orders &orders, Menu &menu) {
 			for (size_t i = 0, len = menu.countMenuDishes (); i != len; ++i) {
 				double kcount = 0, ocount = 0;
-				for (multimap <string, int>::const_iterator it = kitchen.begin (); it != kitchen.end (); ++it) //подсчитали kitchen
+				for (multimap <string, int>::const_iterator it = kitchen.begin (); it != kitchen.end (); ++it) //РїРѕРґСЃС‡РёС‚Р°Р»Рё kitchen
 					if (menu.getMenuDish(i).getName() == it->first)
 						kcount += it->second;
-				for (size_t j = 0, len = orders.countOrderDishes (); j != len; ++j) //подсчитали orders
+				for (size_t j = 0, len = orders.countOrderDishes (); j != len; ++j) //РїРѕРґСЃС‡РёС‚Р°Р»Рё orders
 					if (menu.getMenuDish(i).getName() == orders.getOrderDish(j).getName())
 						ocount += orders.getOrderDish(j).getNumber();
 				stolenDishes.push_back (make_pair (menu.getMenuDish(i).getName(), kcount - ocount));
@@ -840,18 +840,18 @@ class ReportStolenDishes : Report {
 class ReportOrdersStatistics : Report {
 	private:
 		vector <pair <string, double>> ordersStat;
-	private: //выручка
+	private: //РІС‹СЂСѓС‡РєР°
 		double getReportTotalRevenue (const Orders &orders, const Menu &menu) const {
 			double count = 0;
 			for (size_t i = 0, len = orders.sizeOrders (); i != len; ++i)
 				count += menu.getMenuPrice(orders.getOrderDish(i).getName()) * orders.getOrderDish(i).getNumber();
 			return count;
 			}
-	private: //количество заказов
+	private: //РєРѕР»РёС‡РµСЃС‚РІРѕ Р·Р°РєР°Р·РѕРІ
 		int getReportOrdersCount (const Orders &orders) const {
 			return orders[orders.sizeOrders() - 1].getNumberOrder();
 			}
-	private: //средняя сумма заказа
+	private: //СЃСЂРµРґРЅСЏСЏ СЃСѓРјРјР° Р·Р°РєР°Р·Р°
 		double getAvgSumOrders (const Orders &orders) const {
 			size_t i, len;
 			double sum = 0;
@@ -860,7 +860,7 @@ class ReportOrdersStatistics : Report {
 			if (i != 0) sum /= i;
 			return sum;
 			}
-	private: //количество заказанных блюд (detail: 1 - с детализацией, 0 - без деталицзации)
+	private: //РєРѕР»РёС‡РµСЃС‚РІРѕ Р·Р°РєР°Р·Р°РЅРЅС‹С… Р±Р»СЋРґ (detail: 1 - СЃ РґРµС‚Р°Р»РёР·Р°С†РёРµР№, 0 - Р±РµР· РґРµС‚Р°Р»РёС†Р·Р°С†РёРё)
 		void putCountOrdersDishes (const multimap <string, int> &kitchen, const Menu &menu, int detail) {
 			for (size_t i = 0, len = menu.sizeMenu(); i != len; ++i) {
 				double buf2 = 0;
@@ -870,11 +870,11 @@ class ReportOrdersStatistics : Report {
 						if (menu[i].getMenuCatalogDish(j).getName() == it->first)
 							buf += it->second;
 					if (detail)
-						ordersStat.push_back (make_pair (menu[i].getMenuCatalogDish(j).getName(), buf)); // с детализацией
+						ordersStat.push_back (make_pair (menu[i].getMenuCatalogDish(j).getName(), buf)); // СЃ РґРµС‚Р°Р»РёР·Р°С†РёРµР№
 					buf2 += buf;
 					}
 				if (!detail)
-					ordersStat.push_back (make_pair (menu[i].getMenuCategory(), buf2)); // без детализацией
+					ordersStat.push_back (make_pair (menu[i].getMenuCategory(), buf2)); // Р±РµР· РґРµС‚Р°Р»РёР·Р°С†РёРµР№
 				}
 			}
 	public:
@@ -931,7 +931,7 @@ class ReportTrendInPrices : Report {
 			str >> buf;
 			return buf;
 			}
-	private: //динамика цен в меню - изменение цены в абсолютной величине и в процентах
+	private: //РґРёРЅР°РјРёРєР° С†РµРЅ РІ РјРµРЅСЋ - РёР·РјРµРЅРµРЅРёРµ С†РµРЅС‹ РІ Р°Р±СЃРѕР»СЋС‚РЅРѕР№ РІРµР»РёС‡РёРЅРµ Рё РІ РїСЂРѕС†РµРЅС‚Р°С…
 		void putTrendInPrices (const Menu &menuStart, const Menu &menuEnd) {
 			double changedPrice, changePercent;
 			for (size_t i = 0, len_i = menuStart.countMenuDishes(); i != len_i; ++i)
@@ -947,7 +947,7 @@ class ReportTrendInPrices : Report {
 							doubleInString(changedPrice) + " (" + doubleInString(changePercent) + "%)");
 						}
 			}
-	private: //изъятые/добавленные блюда
+	private: //РёР·СЉСЏС‚С‹Рµ/РґРѕР±Р°РІР»РµРЅРЅС‹Рµ Р±Р»СЋРґР°
 		void putAddedRemovedDishes (const Menu &menuStart, const Menu &menuEnd) {
 			for (size_t i = 0, len_i = menuStart.countMenuDishes(); i != len_i; ++i) {
 				bool flag = true;
@@ -996,7 +996,7 @@ class ReportControlDiscount : Report {
 				str.str(""); str.clear();
 				str << orders[i].colculationPercentDiscount(menu);
 				str >> percentDiscount;
-				controlDiscount.push_back (date + " " + orders[i].getTimeOrder() + "\t\tЗаказ №" + numberOrder + "\t" + incorrectCost
+				controlDiscount.push_back (date + " " + orders[i].getTimeOrder() + "\t\tР—Р°РєР°Р· в„–" + numberOrder + "\t" + incorrectCost
 				+ "\t\t" + correctCost + "\t\t" + percentDiscount + "% " + orders[i].getDiscountType()->getNameDiscountType());
 				}
 			}
@@ -1010,7 +1010,7 @@ class ReportControlDiscount : Report {
 	public:
 		vector <string> getReport () const { 
 			vector <string> buf;
-			buf.push_back("<Дата и время заказа> <номер заказа> <неверная сумма> <верная сумма> <размер и тип скидки>");
+			buf.push_back("<Р”Р°С‚Р° Рё РІСЂРµРјСЏ Р·Р°РєР°Р·Р°> <РЅРѕРјРµСЂ Р·Р°РєР°Р·Р°> <РЅРµРІРµСЂРЅР°СЏ СЃСѓРјРјР°> <РІРµСЂРЅР°СЏ СЃСѓРјРјР°> <СЂР°Р·РјРµСЂ Рё С‚РёРї СЃРєРёРґРєРё>");
 			for (vector <string>::const_iterator it = controlDiscount.begin (); it != controlDiscount.end (); ++it)
 				buf.push_back (*it);
 			return buf;
@@ -1019,7 +1019,7 @@ class ReportControlDiscount : Report {
 
 
 //############################################
-// ИНТЕРФЕЙС
+// РРќРўР•Р Р¤Р•Р™РЎ
 //############################################
 
 class UserInterface {
@@ -1027,13 +1027,13 @@ class UserInterface {
 		int basicInterface (string reporttype) {
 			int number;
 			while (1) {
-				cout << endl << "Получить отчёт " << reporttype << " за период: " << endl;
-				cout << "1) За последний день (текущая дата)" << endl;
-				cout << "2) За определенные сутки (дата задается пользователем)" << endl;
-				cout << "3) За последнюю неделю (текущая дата и 6 предшествующих дней) с детализацией по дням" << endl;
-				cout << "4) За заданный период (задаются даты начала и окончания) с детализацией по дням" << endl;
-				cout << "0) Не получать отчёт" << endl;
-				cout << "Номер выбранного отчёта: ";
+				cout << endl << "РџРѕР»СѓС‡РёС‚СЊ РѕС‚С‡С‘С‚ " << reporttype << " Р·Р° РїРµСЂРёРѕРґ: " << endl;
+				cout << "1) Р—Р° РїРѕСЃР»РµРґРЅРёР№ РґРµРЅСЊ (С‚РµРєСѓС‰Р°СЏ РґР°С‚Р°)" << endl;
+				cout << "2) Р—Р° РѕРїСЂРµРґРµР»РµРЅРЅС‹Рµ СЃСѓС‚РєРё (РґР°С‚Р° Р·Р°РґР°РµС‚СЃСЏ РїРѕР»СЊР·РѕРІР°С‚РµР»РµРј)" << endl;
+				cout << "3) Р—Р° РїРѕСЃР»РµРґРЅСЋСЋ РЅРµРґРµР»СЋ (С‚РµРєСѓС‰Р°СЏ РґР°С‚Р° Рё 6 РїСЂРµРґС€РµСЃС‚РІСѓСЋС‰РёС… РґРЅРµР№) СЃ РґРµС‚Р°Р»РёР·Р°С†РёРµР№ РїРѕ РґРЅСЏРј" << endl;
+				cout << "4) Р—Р° Р·Р°РґР°РЅРЅС‹Р№ РїРµСЂРёРѕРґ (Р·Р°РґР°СЋС‚СЃСЏ РґР°С‚С‹ РЅР°С‡Р°Р»Р° Рё РѕРєРѕРЅС‡Р°РЅРёСЏ) СЃ РґРµС‚Р°Р»РёР·Р°С†РёРµР№ РїРѕ РґРЅСЏРј" << endl;
+				cout << "0) РќРµ РїРѕР»СѓС‡Р°С‚СЊ РѕС‚С‡С‘С‚" << endl;
+				cout << "РќРѕРјРµСЂ РІС‹Р±СЂР°РЅРЅРѕРіРѕ РѕС‚С‡С‘С‚Р°: ";
 				cin >> number;
 				if (number >= 0 && number <= 4)
 					return number;
@@ -1044,9 +1044,9 @@ class UserInterface {
 			int number;
 			while (1) {
 				cout << endl << name << endl;
-				cout << "1) Да" << endl;
-				cout << "0) Нет" << endl;
-				cout << "Номер выбранного варианта: ";
+				cout << "1) Р”Р°" << endl;
+				cout << "0) РќРµС‚" << endl;
+				cout << "РќРѕРјРµСЂ РІС‹Р±СЂР°РЅРЅРѕРіРѕ РІР°СЂРёР°РЅС‚Р°: ";
 				cin >> number;
 				if (number >= 0 && number <= 1)
 					return number;
@@ -1070,9 +1070,9 @@ class UserInterface {
 					return 3;
 				case 4 :
 					while (1) {
-						cout << endl << "Начиная c какой даты?" << endl;
+						cout << endl << "РќР°С‡РёРЅР°СЏ c РєР°РєРѕР№ РґР°С‚С‹?" << endl;
 						dateStart.inputDateFromString ();
-						cout << endl << "Заканчивая какой датой?" << endl;
+						cout << endl << "Р—Р°РєР°РЅС‡РёРІР°СЏ РєР°РєРѕР№ РґР°С‚РѕР№?" << endl;
 						dateEnd.inputDateFromString ();
 						if (!dateStart.compareDates(dateEnd.getDate()))
 							return 4;
@@ -1085,7 +1085,7 @@ class UserInterface {
 	public:
 		UserInterface () {
 			Date dstart, dend;
-			if (basicInterfaceInput (dstart, dend, basicInterface ("об украденных блюдах"))) {
+			if (basicInterfaceInput (dstart, dend, basicInterface ("РѕР± СѓРєСЂР°РґРµРЅРЅС‹С… Р±Р»СЋРґР°С…"))) {
 				ReportStolenDishes RSD;
 				while (dstart.getDate() <= dend.getDate()) {
 					multimap <string, int> kitchen;
@@ -1098,8 +1098,8 @@ class UserInterface {
 					}
 				OutputFile (RSD.getReport(), "report_stolen_dishes");
 				}
-			if (basicInterfaceInput (dstart, dend, basicInterface ("по статистике заказов"))) {
-				int detail = interfaceTwoOptions ("По отчёту о количестве заказанных блюд нужна детализация?");
+			if (basicInterfaceInput (dstart, dend, basicInterface ("РїРѕ СЃС‚Р°С‚РёСЃС‚РёРєРµ Р·Р°РєР°Р·РѕРІ"))) {
+				int detail = interfaceTwoOptions ("РџРѕ РѕС‚С‡С‘С‚Сѓ Рѕ РєРѕР»РёС‡РµСЃС‚РІРµ Р·Р°РєР°Р·Р°РЅРЅС‹С… Р±Р»СЋРґ РЅСѓР¶РЅР° РґРµС‚Р°Р»РёР·Р°С†РёСЏ?");
 				ReportOrdersStatistics ROS;
 				while (dstart.getDate() <= dend.getDate()) {
 					multimap <string, int> kitchen;
@@ -1112,7 +1112,7 @@ class UserInterface {
 					}
 				OutputFile (ROS.getReport(), "report_orders_statistics");
 				}
-			if (interfaceTwoOptions ("Получить отчёт по динамике цен в меню (в сравнении между двумя датами)?")) {
+			if (interfaceTwoOptions ("РџРѕР»СѓС‡РёС‚СЊ РѕС‚С‡С‘С‚ РїРѕ РґРёРЅР°РјРёРєРµ С†РµРЅ РІ РјРµРЅСЋ (РІ СЃСЂР°РІРЅРµРЅРёРё РјРµР¶РґСѓ РґРІСѓРјСЏ РґР°С‚Р°РјРё)?")) {
 				basicInterfaceInput (dstart, dend, 4);
 				Menu menuS, menuE;
 				InputFile (menuS, dstart.getDate());
@@ -1121,7 +1121,7 @@ class UserInterface {
 				ReportTrendInPrices RTiP (menuS, menuE);
 				OutputFile (RTiP.getReport(), "report_trend_in_prices");
 				}
-			if (basicInterfaceInput (dstart, dend, basicInterface ("по контролю за расчетом скидок"))) {
+			if (basicInterfaceInput (dstart, dend, basicInterface ("РїРѕ РєРѕРЅС‚СЂРѕР»СЋ Р·Р° СЂР°СЃС‡РµС‚РѕРј СЃРєРёРґРѕРє"))) {
 				ReportControlDiscount RCD;
 				while (dstart.getDate() <= dend.getDate()) {
 					multimap <string, int> kitchen;
