@@ -1,0 +1,8 @@
+﻿D:\Microsoft\Microsoft Visual Studio\2017\Community\Common7\IDE\VC\VCTargets\Microsoft.CppBuild.targets(391,5): warning MSB8028: промежуточный каталог (x64\Release\) содержит файлы, которые используются совместно с другим проектом (QtGuiApplication1.vcxproj).  Это может привести к ошибкам очистки и перестроения.
+  HistogramNormalizer.cpp
+  main.cpp
+  ONIPlayer.cpp
+  QtGuiPlayer.cpp
+  moc_QtGuiPlayer.cpp
+  qrc_QtGuiApplication1.cpp
+  QtGuiApplication1.vcxproj -> C:\Users\Vadim\source\repos\QtGuiApplication1\x64\Release\QtGuiONIPlayer.exe
